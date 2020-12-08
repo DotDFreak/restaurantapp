@@ -1,17 +1,11 @@
 package com.example.restaurantapp.model
 
+
 data class RetrofitPost(
-    val id: Int,
-    val name: String,
-    val address: String,
-    val city: String,
-    val state: String,
-    val area: String,
-    val postal_code: String,
-    val country: String,
-    val phone: String,
-    val lat: Double,
-    val lng: Double,
-    val price: Int,
-    val image_url: String
+    val total_entries: Int,
+    val per_page: Int,
+    val current_page: Int,
+    val restaurants : List<Restaurant>,
+    val count: Int,
+    val cities : List<String>
 )

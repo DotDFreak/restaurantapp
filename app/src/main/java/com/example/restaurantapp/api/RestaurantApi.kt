@@ -1,9 +1,10 @@
 package com.example.restaurantapp.api
 
 import com.example.restaurantapp.model.RetrofitPost
+import retrofit2.Response
 import retrofit2.http.GET
 
 interface RestaurantApi {
-    @GET("restaurants?name=a/")
-    suspend fun getPost(): RetrofitPost
+    @GET("/api/cities")
+    suspend fun getPost(): Response<RetrofitPost>
 }

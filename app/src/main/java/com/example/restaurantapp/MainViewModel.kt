@@ -6,12 +6,13 @@ import androidx.lifecycle.viewModelScope
 import com.example.restaurantapp.model.RetrofitPost
 import com.example.restaurantapp.repository.Repository
 import kotlinx.coroutines.launch
+import retrofit2.Response
 
 class MainViewModel(private val repository: Repository): ViewModel() {
-    val myResponse: MutableLiveData<RetrofitPost> = MutableLiveData()
+    val myResponse: MutableLiveData<Response<RetrofitPost>> = MutableLiveData()
     fun getPost() {
         viewModelScope.launch {
-            val response: RetrofitPost=repository.getPost()
+            val response: Response<RetrofitPost> =repository.getPost()
             myResponse.value = response
         }
     }
