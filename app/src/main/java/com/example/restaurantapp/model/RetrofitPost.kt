@@ -7,5 +7,5 @@ data class RetrofitPost(
     val current_page: Int,
     val restaurants : List<Restaurant>,
     val count: Int,
-    val cities : List<String>
+    val cities : Array<String>
 )
