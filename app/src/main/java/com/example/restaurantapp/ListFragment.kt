@@ -23,7 +23,6 @@ class ListFragment : Fragment() {
     private lateinit var viewModel: MainViewModel
     private lateinit var viewModel2: MainViewModel
     private val myAdapter by lazy {  ListAdapter() }
-    var x: Int = 0
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -53,8 +52,7 @@ class ListFragment : Fragment() {
                         position: Int,
                         id: Long
                     ) {
-                        var loc: String = response.body()!!.cities[position]
-                        viewModel2.getPostRestaurants(loc)
+                        viewModel2.getPostRestaurants(response.body()!!.cities[position])
                         viewModel2.myResponse2.observe(requireActivity(), Observer { response ->
                             if (response.isSuccessful) {
                                     myAdapter.setData(response.body()?.restaurants!!)
@@ -65,11 +63,11 @@ class ListFragment : Fragment() {
                     }
 
                     override fun onNothingSelected(parent: AdapterView<*>?) {
-                        Log.d("Nothing selected", x.toString())
+                        Toast.makeText(requireContext(), "Nothing selected", Toast.LENGTH_SHORT).show()
                     }
                 }
             } else {
-                Log.d("Response", response.errorBody().toString())
+                Toast.makeText(requireContext(), "Nothing to select", Toast.LENGTH_SHORT).show()
             }
         })
 

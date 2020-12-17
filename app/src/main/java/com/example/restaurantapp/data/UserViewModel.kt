@@ -8,7 +8,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.launch
 
-@InternalCoroutinesApi
+
+@OptIn(InternalCoroutinesApi::class)
 class UserViewModel(application: Application) : AndroidViewModel(application) {
     private val readAllData: LiveData<List<UserData>>
     private val repository: UserRepository

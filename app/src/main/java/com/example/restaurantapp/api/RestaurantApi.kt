@@ -7,10 +7,10 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface RestaurantApi {
-    @GET("/api/cities")
+    @GET("cities")
     suspend fun getPost(): Response<RetrofitPost>
 
-    @GET("/api/restaurants?")
+    @GET("/restaurants?")
     suspend fun getPostRestaurants(
         @Query("city") city : String
     ): Response<RetrofitPost>

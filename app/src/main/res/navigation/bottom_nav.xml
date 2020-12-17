@@ -14,10 +14,23 @@
         android:id="@+id/profile"
         android:name="com.example.restaurantapp.Profile"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profile_to_registerFragment2"
+            app:destination="@id/registerFragment" />
+    </fragment>
     <fragment
         android:id="@+id/listFragment"
         android:name="com.example.restaurantapp.ListFragment"
         android:label="Restaurants"
         tools:layout="@layout/fragment_list" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.restaurantapp.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment2_to_profile"
+            app:destination="@id/profile" />
+    </fragment>
 </navigation>

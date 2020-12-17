@@ -1,8 +1,6 @@
 package com.example.restaurantapp.repository
 
-import androidx.lifecycle.LiveData
 import com.example.restaurantapp.api.RetrofitInstance
-import com.example.restaurantapp.model.Restaurant
 import com.example.restaurantapp.model.RetrofitPost
 import retrofit2.Response
 

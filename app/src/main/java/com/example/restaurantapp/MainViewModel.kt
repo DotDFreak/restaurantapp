@@ -1,10 +1,8 @@
 package com.example.restaurantapp
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.restaurantapp.model.Restaurant
 import com.example.restaurantapp.model.RetrofitPost
 import com.example.restaurantapp.repository.Repository
 import kotlinx.coroutines.launch
