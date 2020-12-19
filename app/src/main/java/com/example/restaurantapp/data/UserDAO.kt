@@ -11,6 +11,9 @@ interface UserDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addUser(user: UserData)
 
-    @Query("SELECT * from user_table WHERE password LIKE ")
-    fun readAllData(usr : String, pass: String): LiveData<List<UserData>>
+    @Query("SELECT * FROM user_table")
+    fun readLoginData(): LiveData<List<UserData>>
+
+    @Query("SELECT * FROM user_table WHERE :usr LIKE username")
+    fun readLoggedData(usr : String): LiveData<UserData>
 }

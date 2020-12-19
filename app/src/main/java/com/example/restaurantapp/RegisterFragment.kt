@@ -41,10 +41,10 @@ class RegisterFragment : Fragment() {
         if (inputCheck(userName, email, password)){
             val user=UserData(0,userName,email, password)
             userView.addUser(user)
-            Toast.makeText(requireContext(),"Successful Registration",Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(),"Successful Registration",Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_registerFragment2_to_profile)
         }else{
-            Toast.makeText(requireContext(),"Please fill every field",Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(),"Please fill every field",Toast.LENGTH_LONG).show()
         }
     }
 

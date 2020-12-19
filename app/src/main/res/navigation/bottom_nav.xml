@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_profile_to_registerFragment2"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_profile_to_loggedProfileFragment"
+            app:destination="@id/loggedProfileFragment" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"
@@ -31,6 +34,15 @@
         tools:layout="@layout/fragment_register" >
         <action
             android:id="@+id/action_registerFragment2_to_profile"
+            app:destination="@id/profile" />
+    </fragment>
+    <fragment
+        android:id="@+id/loggedProfileFragment"
+        android:name="com.example.restaurantapp.LoggedProfileFragment"
+        android:label="fragment_logged_profile"
+        tools:layout="@layout/fragment_logged_profile" >
+        <action
+            android:id="@+id/action_loggedProfileFragment_to_profile"
             app:destination="@id/profile" />
     </fragment>
 </navigation>

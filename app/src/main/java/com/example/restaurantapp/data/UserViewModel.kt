@@ -11,12 +11,15 @@ import kotlinx.coroutines.launch
 
 @OptIn(InternalCoroutinesApi::class)
 class UserViewModel(application: Application) : AndroidViewModel(application) {
-    private val readAllData: LiveData<List<UserData>>
+    val readLoginData: LiveData<List<UserData>>
+    val readLoggedData: LiveData<UserData>
+    var usr : String = "Teszt"
     private val repository: UserRepository
     init {
         val userDAO=UserDatabase.getDatabase(application).userDAO()
-        repository=UserRepository(userDAO)
-        readAllData=repository.readAllData
+        repository=UserRepository(userDAO,usr)
+        readLoginData=repository.readLoginData
+        readLoggedData=repository.readLoggedData
     }
     fun addUser(user: UserData){
         viewModelScope.launch(Dispatchers.IO) {
