@@ -19,7 +19,6 @@ import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 class Profile : Fragment() {
     private lateinit var userView : UserViewModel
-    //private lateinit var communicator: Communicator
     private lateinit var viewModel: LoginViewModel
 
     override fun onCreateView(
@@ -32,7 +31,6 @@ class Profile : Fragment() {
         view.buttonRegister.setOnClickListener{
             findNavController().navigate(R.id.action_profile_to_registerFragment2)
         }
-       // communicator = activity as Communicator
         view.buttonLogin.setOnClickListener{
             login()
         }
@@ -51,7 +49,6 @@ class Profile : Fragment() {
                 for( i in user){
                     if (i.password.toString()==pWord && i.username.toString()==usrName ){
                         Toast.makeText(requireContext(),"Login successful", Toast.LENGTH_LONG).show()
-                        //communicator.passData(view?.editTextLoginUserName?.text.toString())
                         viewModel = activity?.run {
                             ViewModelProviders.of(this).get(LoginViewModel::class.java)
                         } ?: throw Exception("Invalid Activity")

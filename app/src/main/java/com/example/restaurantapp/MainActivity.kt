@@ -26,24 +26,5 @@ class MainActivity : AppCompatActivity()  {
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNavigationView.setupWithNavController(navController)
 
-        /*val checkedItemId = bottomNavigationView.selectedItemId
-        if(checkedItemId==2) {
-            val fragLogin = Profile()
-            supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragLogin).commit()
-        }*/
     }
-
-   /*override fun passData(usrName: String) {
-        val bundle = Bundle()
-        bundle.putString("message", usrName)
-
-        val transaction = this.supportFragmentManager.beginTransaction()
-        val fragProf = LoggedProfileFragment()
-        fragProf.arguments = bundle
-
-        transaction.replace(R.id.fragment_container, fragProf)
-        transaction.commit()
-    }*/
-
-
 }

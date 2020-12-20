@@ -32,7 +32,6 @@ class LoggedProfileFragment : Fragment() {
         })
 
         userView = ViewModelProvider(this).get(UserViewModel::class.java)
-        //userView.usr = usrName.toString()
         userView.readLoggedData.observe(viewLifecycleOwner, Observer {  it ->
             textViewUserName.text = it.username.toString()
             textViewEmail.text = it.email.toString()

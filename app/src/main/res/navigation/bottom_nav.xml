@@ -13,7 +13,7 @@
     <fragment
         android:id="@+id/profile"
         android:name="com.example.restaurantapp.Profile"
-        android:label="Profile"
+        android:label="Login"
         tools:layout="@layout/fragment_profile" >
         <action
             android:id="@+id/action_profile_to_registerFragment2"
@@ -26,7 +26,11 @@
         android:id="@+id/listFragment"
         android:name="com.example.restaurantapp.ListFragment"
         android:label="Restaurants"
-        tools:layout="@layout/fragment_list" />
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.restaurantapp.RegisterFragment"
@@ -39,10 +43,22 @@
     <fragment
         android:id="@+id/loggedProfileFragment"
         android:name="com.example.restaurantapp.LoggedProfileFragment"
-        android:label="fragment_logged_profile"
+        android:label="Profile"
         tools:layout="@layout/fragment_logged_profile" >
         <action
             android:id="@+id/action_loggedProfileFragment_to_profile"
             app:destination="@id/profile" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.restaurantapp.DetailFragment"
+        android:label="Details"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="currentRestaurant"
+            app:argType="com.example.restaurantapp.model.Restaurant" />
     </fragment>
 </navigation>
