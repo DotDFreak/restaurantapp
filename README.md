@@ -2,6 +2,10 @@
 
 This app is a simple app for viewing restaurant data
 
+# Info
+
+The app is on master branch, main branch only has this readme
+
 # Status
     
 It's still a work in progress, but probably won't be finished, because I ran out of time
