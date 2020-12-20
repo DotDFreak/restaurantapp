@@ -11,8 +11,8 @@ import kotlinx.coroutines.launch
 
 @OptIn(InternalCoroutinesApi::class)
 class UserViewModel(application: Application) : AndroidViewModel(application) {
-    val readLoginData: LiveData<List<UserData>>
-    val readLoggedData: LiveData<UserData>
+    val readLoginData: LiveData<List<UserData>>                             //viewmodel, amiben az adatbazis valtozoit,
+    val readLoggedData: LiveData<UserData>                                  //fuggvenyeit deklaralom, livedata hasznalatahoz
     var usr : String = "Teszt"
     private val repository: UserRepository
     init {

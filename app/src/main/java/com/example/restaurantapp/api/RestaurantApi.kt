@@ -8,10 +8,10 @@ import retrofit2.http.Query
 
 interface RestaurantApi {
     @GET("cities")
-    suspend fun getPost(): Response<RetrofitPost>
+    suspend fun getPost(): Response<RetrofitPost>     //get keres a varosok listajara
 
     @GET("/restaurants?")
     suspend fun getPostRestaurants(
-        @Query("city") city : String
+        @Query("city") city : String           //get keres az ettermekre, varos szerint
     ): Response<RetrofitPost>
 }

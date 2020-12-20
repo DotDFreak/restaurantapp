@@ -1,8 +1,6 @@
-package com.example.restaurantapp
+package com.example.restaurantapp.fragments
 
-import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,13 +11,15 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import com.example.restaurantapp.LoginViewModel
+import com.example.restaurantapp.R
 import com.example.restaurantapp.data.UserViewModel
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 class Profile : Fragment() {
     private lateinit var userView : UserViewModel
-    private lateinit var viewModel: LoginViewModel
+    private lateinit var viewModel: LoginViewModel              //A loginviewmodel csak azert van, mert bundle-el nem tudtam atadni a usernamet a profil fragmentnek
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,17 +40,17 @@ class Profile : Fragment() {
 
     private fun login() {
 
-        val usrName = editTextLoginUserName.text.toString()
+        val usrName = editTextLoginUserName.text.toString()             //kiveszem az adatot az edittextbol
         val pWord = editTextLoginPassword.text.toString()
 
         if(loginCheck(usrName,pWord)){
-            userView = ViewModelProvider(this).get(UserViewModel::class.java)
+            userView = ViewModelProvider(this).get(UserViewModel::class.java)                 //lekerem a felhasznalok listajat
             userView.readLoginData.observe(viewLifecycleOwner, Observer { user->
                 for( i in user){
-                    if (i.password.toString()==pWord && i.username.toString()==usrName ){
-                        Toast.makeText(requireContext(),"Login successful", Toast.LENGTH_LONG).show()
+                    if (i.password.toString()==pWord && i.username.toString()==usrName ){               //atmegyek a felhasznalokon, ha egyezik a felhasznalonev es jelszo,
+                        Toast.makeText(requireContext(),"Login successful", Toast.LENGTH_LONG).show()       //atadom a viewmodelnek a felhasznalonevet
                         viewModel = activity?.run {
-                            ViewModelProviders.of(this).get(LoginViewModel::class.java)
+                            ViewModelProviders.of(this).get(LoginViewModel::class.java)                 //es atnavigalok a profil(loggedProfile) fragmentre
                         } ?: throw Exception("Invalid Activity")
                         viewModel.usrName.value = usrName
                         findNavController().navigate(R.id.action_profile_to_loggedProfileFragment)
@@ -62,7 +62,7 @@ class Profile : Fragment() {
         }
     }
 
-    private fun loginCheck ( userName : String, password: String ) : Boolean {
+    private fun loginCheck ( userName : String, password: String ) : Boolean {              //ezzel leellenorizem, hogy ne legyen uresen hagyott edittext
         return !(TextUtils.isEmpty(userName) && TextUtils.isEmpty(password))
     }
 

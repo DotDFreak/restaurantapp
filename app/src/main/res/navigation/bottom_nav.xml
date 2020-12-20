@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_favourites" />
     <fragment
         android:id="@+id/profile"
-        android:name="com.example.restaurantapp.Profile"
+        android:name="com.example.restaurantapp.fragments.Profile"
         android:label="Login"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.restaurantapp.ListFragment"
+        android:name="com.example.restaurantapp.fragments.ListFragment"
         android:label="Restaurants"
         tools:layout="@layout/fragment_list" >
         <action
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.restaurantapp.RegisterFragment"
+        android:name="com.example.restaurantapp.fragments.RegisterFragment"
         android:label="Register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/loggedProfileFragment"
-        android:name="com.example.restaurantapp.LoggedProfileFragment"
+        android:name="com.example.restaurantapp.fragments.LoggedProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_logged_profile" >
         <action
@@ -51,7 +51,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.restaurantapp.DetailFragment"
+        android:name="com.example.restaurantapp.fragments.DetailFragment"
         android:label="Details"
         tools:layout="@layout/fragment_detail" >
         <action

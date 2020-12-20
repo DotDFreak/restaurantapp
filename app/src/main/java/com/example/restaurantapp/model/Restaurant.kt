@@ -4,8 +4,8 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Restaurant(
-    val id: Int,
+data class Restaurant(                                  //az ettermekhez csinaltam kulon data classt, konnyebnek tunt igy
+    val id: Int,                                        // azert parcelize, hogy tudjam argumentumkent atadni safe args pluginnal egyik fragmentbol a masikba
     val name: String,
     val address: String,
     val city: String,

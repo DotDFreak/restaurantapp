@@ -8,7 +8,7 @@ import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.internal.synchronized
 
 @Database(entities = [UserData::class], version = 1, exportSchema = false)
-abstract class UserDatabase : RoomDatabase() {
+abstract class UserDatabase : RoomDatabase() {                       //Ebbol nem ertek sokmindent, ha jol ertettem ez hozza letre az adatbazist
     abstract fun userDAO(): UserDAO
     companion object{
         @Volatile

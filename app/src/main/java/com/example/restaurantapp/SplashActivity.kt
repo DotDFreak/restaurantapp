@@ -11,7 +11,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        supportActionBar?.hide()
+        supportActionBar?.hide()                                    //kulon activityt csinaltam a splashnek, 3 masodperc utan lejar
         Handler().postDelayed({
             val intent = Intent(this@SplashActivity,MainActivity::class.java)
             startActivity(intent)

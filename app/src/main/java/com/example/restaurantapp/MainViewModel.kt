@@ -11,7 +11,7 @@ import retrofit2.Response
 class MainViewModel(private val repository: Repository): ViewModel() {
 
     val myResponse: MutableLiveData<Response<RetrofitPost>> = MutableLiveData()
-    val myResponse2: MutableLiveData<Response<RetrofitPost>> = MutableLiveData()
+    val myResponse2: MutableLiveData<Response<RetrofitPost>> = MutableLiveData()        //viewmodel a retrofit muveletekhez
 
     fun getPost() {
         viewModelScope.launch {

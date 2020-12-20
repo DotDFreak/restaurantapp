@@ -1,4 +1,4 @@
-package com.example.restaurantapp
+package com.example.restaurantapp.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,17 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
+import com.example.restaurantapp.R
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 
 class DetailFragment : Fragment() {
-    private val args by navArgs<DetailFragmentArgs>()
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+    private val args by navArgs<DetailFragmentArgs>()                                           //ez a detail fragmentem, megjeleniti az etterem adatait
+                                                                                                //safe args pluginnal valositom meg a kapcsolatot
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,                  // a list es a detail fragmentek kozott
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_detail, container, false)
 
-        view.textViewName.text = args.currentRestaurant.name
+        view.textViewName.text = args.currentRestaurant.name                                //lekerem a kivalasztott etterem adatait es atadom a textview-oknak
         view.textViewAddress.text = args.currentRestaurant.address
         view.textViewCity.text = args.currentRestaurant.city
         view.textViewState.text = args.currentRestaurant.state
@@ -27,6 +29,11 @@ class DetailFragment : Fragment() {
         view.textViewLatitude.text = args.currentRestaurant.lat.toString()
         view.textViewLongitude.text = args.currentRestaurant.lng.toString()
         view.textViewPrice.text = args.currentRestaurant.price.toString()
+
+        val imageUrl = args.currentRestaurant.image_url                 //itt glide-al megjelenitem a kepet amit lekertem a kivalasztott etteremtol
+        Glide.with(view)
+            .load(imageUrl)
+            .into(view.imageViewDetail)
 
 
         return view
